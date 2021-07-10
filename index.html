@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical classes</title>
+    <script src="app.js"></script>
+</head>
+<body>
+        <h3 id="first" hidden>tomid</h3>
+        <h4 id="second">Seun</h4>
+        <a href="#" id="bro"></a>
+
+        <input type="text" id="get_numb">
+        <Button onclick="task()">display</Button>
+        <h2 id="displa"></h2>
+        <input type="text" id="enter_number" onkeyup="show()">
+        <h2 id="showy"> </h2>
+        <input type="text" id="get_fib" onkeyup="fibb()">
+        <h2 id="show_fib"></h2>
+       
+
+<script>
+    //  saver=document.getElementById('first').style.color='red'
+    //     document.getElementById('second').innerHTML=saver
+    //     document.getElementById('bro').href= 'www.w3school.com'
+
+    //  document.getElementById('first').onclick= 
+    //  visibility='visible'
+   
+     function street(rew){
+            return(Math.floor(Math.random()* rew)+1)
+     }
+     var counter=0
+         while(counter>10){
+             let randNumb = street(6)
+            counter+=1;
+            document.write(randNumb+'')
+     }
+
+    //  enter a number and return the numbers that could serve as divisors
+    function task(){
+        var number = document.getElementById('get_numb').value
+        number=Number(number)
+        for (let index = 2; index < number; index++) {
+             if (number % index==0) {
+                 displa.innerHTML += `${index} <br>`
+                // console.log(index);
+             }
+          }
+
+       }
+
+    //    return the numbers common to the two arrays 
+   var  a =[1,1,2,3,5,8,13,21,34,55,89];
+   var b = [1,2,3,4,5,6,7,8,9,10,11,12,13];
+   var c = [];
+
+  for (let index = 0; index < b.length; index++) {
+    if (b.includes(a[index])) {
+      console.log(a[index])
+   }
+  }
+
+        // a.forEach(element => {
+        //     b.forEach(ele=>{
+        //         if (element==ele) {
+        //             console.log(element)
+        //         }
+        //     })
+        // });
+
+      b.forEach(function(element,index){
+          console.log(element)
+      })
+        b.forEach(element=>{
+            console.log(element)
+        })
+
+        // to check for prime numbers//
+    function show(){
+        var entered_num = document.getElementById('enter_number').value
+        entered_num = Number(entered_num)
+        prime= true;
+
+        if (entered_num == 1) {
+            showy.innerHTML=" 1 is not a prime number"
+        }
+        else if (entered_num > 1) {
+            for (let index = 2; index < entered_num; index++) {
+                if (entered_num % index == 0) {
+                    prime = false;
+                   showy.innerHTML=`${entered_num} is not a prime number`
+                }
+            }
+
+        if (prime== true){
+        showy.innerHTML=`${entered_num} is a prime number`
+        }
+        }
+
+    }
+
+    //   Fibbonacci task//
+     function fibb(){
+        seq1 = 0 ;
+        seq2 = 1 ;
+        next_num ;
+        index ;
+
+        var fibbo = document.getElementById('get_fib').value;
+        fibbo = Number(fibbo)
+    
+        for (let index = 1; index < fibbo; index++) {
+           show_fib.innerHTML= seq1
+            next_num = seq1 +seq2
+            seq1=seq2
+            seq2=next_num
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>
